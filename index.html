@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <title>Happy Birthday</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styling for the container */
+        #image-container {
+            width: 100px;
+            height: 570px;
+            overflow: hidden; /* Hides parts of images outside this area */
+            position: relative;
+            margin: 10px auto; /* Centers the container on the page */
+            /*border: 2px solid black;*/
+        }
+
+        /* Styling for the image itself */
+        #running-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images cover the area nicely */
+            display: block;
+        }
+        #running-image2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images cover the area nicely */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="loader">
+                <button id="play">Start</button>
+                <img id="running-image2" src="IMG-1.jpg" alt="Running Image">
+            </div>
+        </div>
+    </div>
+    <audio class="song" controls loop>
+        <source src="music.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <canvas id="confetti"></canvas>
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 col-xl-3 mx-auto" id="image-container">
+                        <img id="running-image" src="IMG-1.jpg" alt="Running Image">
+                </div>
+
+                <div class="col-9 col-xl-9 mx-auto">
+                    <img src="img/banner.png" alt="">
+                    <div id="name" class="area">Dr Gagan</div>
+                    <div class="type-wrap">
+                        <div id="typed-strings" class="typing">
+                            <h2>Happy Birthday <i id="nae">Dr Gagan</i></h2>
+                            <h4>Your Laugter is my favourite chaos, and our bond only gets stronger with age.</h4>
+                            <h4>Cheers to your strength, kindness, and the unbreakable bond we share.</h4>
+                            <h4>To my fierce bestie:May your year be bold, curvy and untamed as you are.</h4>
+                            <h4>Your smile sets fires I can't put out-blowout those candles, then let's ignite something hotter.</h4>
+                            <h4>You're aging like a fine wine-smooth, intoxicating, and begging to be savored in the naughtiest ways.</h4>
+                            <h4>Your smile sets fires I can't put out-blowout those candles, then let's ignite something hotter</h4>
+                            <img src="img/cake.gif" alt="">
+                        </div>
+                        <span id="typed" style="white-space:pre;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+    </div>
+</body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/typed.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    const images = [
+    'IMG-1.jpg',
+    'IMG-2.jpg',
+    'IMG-3.jpg',
+    'IMG-4.jpg',
+    'IMG-5.jpg',
+    
+    // Add more image paths as needed
+];
+
+let currentIndex = 0;
+const runningImage = document.getElementById('running-image');
+
+// Function to change the image
+function changeImage() {
+    // Update the image source to the next image in the array
+    runningImage.src = images[currentIndex];
+    
+    // Move to the next index, or loop back to the start
+    currentIndex = (currentIndex + 1) % images.length;
+}
+
+// Change the image every 3000 milliseconds (3 seconds)
+setInterval(changeImage, 3000); 
+
+// Initial call to set the first image on page load
+changeImage();
+
+</script>
+
+</html>
